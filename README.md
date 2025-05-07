@@ -41,7 +41,7 @@
 ├── script.js          # Frontend logic
 ├── proxy-server.js    # Node.js/Express proxy for Pastebin API
 ├── package.json       # Backend dependencies
-├── .env               # (Not committed) Pastebin API key
+├── .env.example       # Pastebin API key
 └── README.md          # This file
 ```
 
