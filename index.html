@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Weaver's Quick-Cache</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Highlight.js CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <!-- Highlight.js Core -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <!-- Additional language support -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/cpp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/csharp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/php.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/ruby.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/go.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/typescript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/bash.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/json.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/markdown.min.js"></script>
+    <link rel="icon" type="image/png" href="https://cdn.jsdelivr.net/gh/twitter/twemoji@14.0.2/assets/72x72/1f4dd.png">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Code Weaver's Quick-Cache</h1>
+            <p class="subtitle">Your Secure Scratchpad for Code & Thoughts</p>
+            <button id="helpButton" aria-label="Help/About" class="help-button">?</button>
+        </header>
+
+        <main>
+            <div class="editor-section">
+                <textarea id="noteInput" placeholder="Type your code or text here..."></textarea>
+                
+                <div class="preview-section">
+                    <h3>Preview</h3>
+                    <pre><code id="previewCode"></code></pre>
+                </div>
+            </div>
+
+            <div class="options-section">
+                <div class="option-group">
+                    <label for="syntaxSelect">Syntax Highlighting:</label>
+                    <select id="syntaxSelect">
+                        <option value="text">Plain Text</option>
+                        <option value="javascript">JavaScript</option>
+                        <option value="typescript">TypeScript</option>
+                        <option value="python">Python</option>
+                        <option value="java">Java</option>
+                        <option value="cpp">C++</option>
+                        <option value="csharp">C#</option>
+                        <option value="php">PHP</option>
+                        <option value="ruby">Ruby</option>
+                        <option value="go">Go</option>
+                        <option value="bash">Bash</option>
+                        <option value="json">JSON</option>
+                        <option value="markdown">Markdown</option>
+                        <option value="xml">HTML</option>
+                        <option value="css">CSS</option>
+                    </select>
+                </div>
+
+                <div class="option-group">
+                    <label for="expirationSelect">Expiration:</label>
+                    <select id="expirationSelect">
+                        <option value="10M">10 Minutes</option>
+                        <option value="1H">1 Hour</option>
+                        <option value="1D">1 Day</option>
+                        <option value="1W">1 Week</option>
+                        <option value="N">Never</option>
+                    </select>
+                </div>
+
+                <div class="option-group">
+                    <label for="pasteName">Paste Name (Optional):</label>
+                    <input type="text" id="pasteName" placeholder="QuickCache Note">
+                </div>
+
+                <div class="option-group">
+                    <label for="privacySelect">Privacy:</label>
+                    <select id="privacySelect">
+                        <option value="1">Unlisted</option>
+                        <option value="0">Public</option>
+                    </select>
+                </div>
+
+                <button id="saveButton" class="primary-button">Save Note</button>
+            </div>
+
+            <div class="result-section">
+                <div class="link-display">
+                    <input type="text" id="pasteLink" readonly placeholder="Paste link will appear here...">
+                    <button id="copyButton" class="secondary-button">Copy Link & Vanish</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <div id="helpModal" class="modal" aria-modal="true" role="dialog" tabindex="-1" style="display:none;">
+        <div class="modal-content">
+            <span id="closeHelp" class="close" aria-label="Close Help">&times;</span>
+            <h2>About Code Weaver's Quick-Cache</h2>
+            <p>This is a secure, temporary online notepad for code snippets and text, powered by Pastebin. Features include syntax highlighting, expiration, privacy controls, and more. Your notes are never stored on this site, only on Pastebin via a secure proxy.</p>
+            <ul>
+                <li><b>Syntax Highlighting:</b> Choose your language for code preview and Pastebin formatting.</li>
+                <li><b>Expiration:</b> Set how long your note should last on Pastebin.</li>
+                <li><b>Privacy:</b> Unlisted (only those with the link can view) or Public (searchable on Pastebin).</li>
+                <li><b>Copy & Vanish:</b> Copies the link and clears your note for privacy.</li>
+            </ul>
+            <p>For feedback or issues, contact the developer.</p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
