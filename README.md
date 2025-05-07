@@ -41,7 +41,7 @@
 ├── script.js          # Frontend logic
 ├── proxy-server.js    # Node.js/Express proxy for Pastebin API
 ├── package.json       # Backend dependencies
-├── .env.example       # Pastebin API key
+├── env.example        # Pastebin API key
 └── README.md          # This file
 ```
 
@@ -65,10 +65,10 @@ npm install
 ### 3. Configure Pastebin API Key
 
 - Get your [Pastebin API Developer Key](https://pastebin.com/doc_api)
-- Copy `.env.example` to `.env` and fill in your key:
+- Copy `env.example` to `.env` and fill in your key:
 
 ```bash
-cp .env.example .env
+cp env.example .env
 ```
 
 Edit `.env` and set:
